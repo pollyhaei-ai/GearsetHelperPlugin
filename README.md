@@ -38,13 +38,13 @@ Dalamud 的介面語言選 **繁體中文**（語言代碼 `tw`）時，會載�
 
 沒有選繁體中文時，Dalamud 可能回報 `en` 或 `zh`（作業系統是繁中時，兩字母代碼常常是 `zh`）。這個組建沒有 `zh.json`，那些情況會用程式裡的英文。請在 Dalamud 設定裡明確選繁體中文。
 
-## 使用前請先看
+## 使用狀況
 
-- 等級 100 以上、又沒有另外指定品級同步時，`EquipmentSet.UpdateSync` 仍把同步品級寫死成 **795**。這是上游針對國際服寫的數字，這次沒有改。台服若已超過該品級，請在視窗裡手動填品級同步，不要只靠預設值。
-- `Data.cs` 的 `LevelStats` 與 `COEFFICIENTS` 是黃金的遺產時期的社群公式，沒有為台服重算。介面上若出現「公式尚未針對黃金的遺產更新」是上游原文；傷害與能力估算都還沒在台服核對。
-- `GameFunctions` 裡有一條查看視窗的簽名掛鉤，但 `Plugin` 沒有建立它，所以目前不會去掃那段特徵碼。若以後打開，特徵碼必須先在台服用戶端重對。
-- 查看視窗仍用插件裡的節點走訪來對玩家名稱，依附位置改讀 `AtkUnitBasePtr` 的座標與 `ScaledWidth`。載入成功不代表這兩項已經在台服對過。
-- 匯出用的是用戶端資料表裡的物品 ID。Etro、Ariyala、XivGear、Teamcraft 沒有在這次移植裡實測。
+擁有者已在台服進遊戲看過，載入與基本使用暫時沒有問題。下面幾項仍請留意：
+
+- **品級同步 795**：等級 100 以上、又沒有另外指定品級同步時，`EquipmentSet.UpdateSync` 仍把同步品級寫死成 **795**。這是上游針對國際服寫的數字，這次沒有改。台服若已超過該品級，請在視窗裡手動填品級同步，不要只靠預設值。
+- **戰鬥公式**：`Data.cs` 的 `LevelStats` 與 `COEFFICIENTS` 是黃金的遺產時期的社群公式，沒有為台服重算。介面上若出現「公式尚未針對黃金的遺產更新」是上游原文。
+- **簽名掛鉤**：`GameFunctions` 裡有一條查看視窗的簽名，但 `Plugin` 沒有建立它，所以目前不會去掃那段特徵碼。
 
 ## 來源
 
@@ -75,4 +75,4 @@ Download [GearsetHelperPlugin-api13-tw-2.6.0.1.zip](https://github.com/pollyhaei
 
 Set Dalamud’s UI language to Traditional Chinese (`/xlsettings`). That language code is `tw`, which loads `i18n/tw.json`. Item names still come from the game client. Leaving the language on the default can report `zh` on a Traditional Chinese Windows install and will fall back to English.
 
-The level ≥100 item-level sync fallback is still the upstream value **795**. Dawntrail combat coefficients in `Data.cs` were not rewritten. The examine signature hook in `GameFunctions` is not constructed, so it does not run. Window attachment and the examine name walk have not been checked in-game on the Taiwan client.
+The owner checked basic load and use in-game on the Taiwan client and reported no problems for now. The level ≥100 item-level sync fallback is still the upstream value **795**. Dawntrail combat coefficients in `Data.cs` were not rewritten. The examine signature hook in `GameFunctions` is not constructed, so it does not run.
