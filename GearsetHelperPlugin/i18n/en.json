@@ -1,0 +1,522 @@
+{
+  "attr.base": {
+    "message": "The base attribute points, before any gear is taken into account.",
+    "description": "The base attribute points, before any gear is taken into account."
+  },
+  "attr.delta": {
+    "message": "The attribute points added by melded materia.",
+    "description": "The attribute points added by melded materia."
+  },
+  "attr.food": {
+    "message": "The attribute points gained from food.",
+    "description": "The attribute points gained from food."
+  },
+  "attr.gcd": {
+    "message": "This line displays the number of attribute points needed to change your GCD, while the previous line's tiers are for DoT damage.",
+    "description": "This line displays the number of attribute points needed to change your GCD, while the previous line's tiers are for DoT damage."
+  },
+  "attr.gear": {
+    "message": "The attribute points added by gear, not counting materia.",
+    "description": "The attribute points added by gear, not counting materia."
+  },
+  "attr.group-bonus": {
+    "message": "The attribute points gained from the Party Bonus.",
+    "description": "The attribute points gained from the Party Bonus."
+  },
+  "attr.next-tier": {
+    "message": "The number of attribute points to the next tier.",
+    "description": "The number of attribute points to the next tier."
+  },
+  "attr.prev-tier": {
+    "message": "The number of attribute points since the previous tier.",
+    "description": "The number of attribute points since the previous tier."
+  },
+  "attr.remaining": {
+    "message": "The number of attribute points remaining until the item's limits are reached.",
+    "description": "The number of attribute points remaining until the item's limits are reached."
+  },
+  "attr.value": {
+    "message": "The final attribute points when you sum everything up.",
+    "description": "The final attribute points when you sum everything up."
+  },
+  "attr.waste": {
+    "message": "The wasted attribute points from materia melded past an item's limits.",
+    "description": "The wasted attribute points from materia melded past an item's limits."
+  },
+  "calc.class": {
+    "message": "Class",
+    "description": "Class"
+  },
+  "calc.crit-rate": {
+    "message": "Critical Hit Rate",
+    "description": "Critical Hit Rate"
+  },
+  "calc.crit-strength": {
+    "message": "Critical Hit Multiplier",
+    "description": "Critical Hit Multiplier"
+  },
+  "calc.def-mitigation": {
+    "message": "Damage Mitigation",
+    "description": "Damage Mitigation"
+  },
+  "calc.det-multi": {
+    "message": "Determination Multiplier",
+    "description": "Determination Multiplier"
+  },
+  "calc.dh-rate": {
+    "message": "Direct Hit Rate",
+    "description": "Direct Hit Rate"
+  },
+  "calc.gcd": {
+    "message": "Global Cooldown",
+    "description": "Global Cooldown"
+  },
+  "calc.gcd-gl": {
+    "message": "Global Cooldown (GL)",
+    "description": "Global Cooldown (GL)"
+  },
+  "calc.gcd-hu": {
+    "message": "Global Cooldown (Huton)",
+    "description": "Global Cooldown (Huton)"
+  },
+  "calc.gcd-hyp": {
+    "message": "Global Cooldown (Hyperphantasia)",
+    "description": "Global Cooldown (Hyperphantasia)"
+  },
+  "calc.gcd-ll": {
+    "message": "Global Cooldown (Ley Lines)",
+    "description": "Global Cooldown (Ley Lines)"
+  },
+  "calc.gcd-ssc": {
+    "message": "Global Cooldown (Swiftscaled)",
+    "description": "Global Cooldown (Swiftscaled)"
+  },
+  "calc.hp": {
+    "message": "HP",
+    "description": "HP"
+  },
+  "calc.item-level": {
+    "message": "Average Item Level",
+    "description": "Average Item Level"
+  },
+  "calc.level": {
+    "message": "Level",
+    "description": "Level"
+  },
+  "calc.mdef-mitigation": {
+    "message": "Magic Damage Mitigation",
+    "description": "Magic Damage Mitigation"
+  },
+  "calc.name": {
+    "message": "Player Name",
+    "description": "Player Name"
+  },
+  "calc.pie-tick": {
+    "message": "MP per Tick",
+    "description": "MP per Tick"
+  },
+  "calc.sks-multi": {
+    "message": "Skill Speed Multiplier",
+    "description": "Skill Speed Multiplier"
+  },
+  "calc.specialist": {
+    "message": "Specialist",
+    "description": "Specialist"
+  },
+  "calc.sps-multi": {
+    "message": "Spell Speed Multiplier",
+    "description": "Spell Speed Multiplier"
+  },
+  "calc.ten-mitigation": {
+    "message": "Tenacity Mitigation",
+    "description": "Tenacity Mitigation"
+  },
+  "calc.ten-multi": {
+    "message": "Tenacity Multiplier",
+    "description": "Tenacity Multiplier"
+  },
+  "calc.tribe": {
+    "message": "Race / Clan",
+    "description": "Race / Clan"
+  },
+  "export.error.ariyala-invalid": {
+    "message": "Ariyala returned invalid response.",
+    "description": "Ariyala returned invalid response."
+  },
+  "export.error.ariyala-job": {
+    "message": "Unable to map job to Ariyala.",
+    "description": "Unable to map job to Ariyala."
+  },
+  "export.error.etro-auth": {
+    "message": "Unable to export to Etro. Not authenticated.",
+    "description": "Unable to export to Etro. Not authenticated."
+  },
+  "export.error.etro-detail": {
+    "message": "Etro returned an error: {0}",
+    "description": "Etro returned an error: {0}"
+  },
+  "export.error.etro-invalid": {
+    "message": "Etro returned an invalid response.",
+    "description": "Etro returned an invalid response."
+  },
+  "export.error.etro-invalid-short": {
+    "message": "Etro returned invalid response.",
+    "description": "Etro returned invalid response."
+  },
+  "export.error.no-class": {
+    "message": "Unable to detect class.",
+    "description": "Unable to detect class."
+  },
+  "export.error.see-log": {
+    "message": "An error occurred. See the log for details.",
+    "description": "An error occurred. See the log for details."
+  },
+  "export.visit-xivgear": {
+    "message": "Visit the provided URL and paste the JSON below to import your gearset into XivGear.",
+    "description": "Visit the provided URL and paste the JSON below to import your gearset into XivGear."
+  },
+  "export.xivgear.no-dohl": {
+    "message": "XivGear does not support non-combat jobs.",
+    "description": "XivGear does not support non-combat jobs."
+  },
+  "gui.about-level-sync": {
+    "message": "Simulate stats at a specific synced level or item level. Melded materia do not apply when synced down.",
+    "description": "Simulate stats at a specific synced level or item level. Melded materia do not apply when synced down."
+  },
+  "gui.at-synced-ilvl": {
+    "message": "(At i{0})",
+    "description": "(At i{0})"
+  },
+  "gui.attributes": {
+    "message": "Attributes",
+    "description": "Attributes"
+  },
+  "gui.calculated": {
+    "message": "Calculated",
+    "description": "Calculated"
+  },
+  "gui.character": {
+    "message": "Character",
+    "description": "Character"
+  },
+  "gui.col.base": {
+    "message": "Base",
+    "description": "Base"
+  },
+  "gui.col.cap": {
+    "message": "Cap",
+    "description": "Cap"
+  },
+  "gui.col.food": {
+    "message": "Food",
+    "description": "Food"
+  },
+  "gui.col.gear": {
+    "message": "Gear",
+    "description": "Gear"
+  },
+  "gui.col.meld": {
+    "message": "Meld",
+    "description": "Meld"
+  },
+  "gui.col.name": {
+    "message": "Name",
+    "description": "Name"
+  },
+  "gui.col.next": {
+    "message": "Next",
+    "description": "Next"
+  },
+  "gui.col.over": {
+    "message": "Over",
+    "description": "Over"
+  },
+  "gui.col.party": {
+    "message": "Party",
+    "description": "Party"
+  },
+  "gui.col.prev": {
+    "message": "Prev",
+    "description": "Prev"
+  },
+  "gui.col.total": {
+    "message": "Total",
+    "description": "Total"
+  },
+  "gui.copied-to-clipboard": {
+    "message": "Copied to Clipboard",
+    "description": "Copied to Clipboard"
+  },
+  "gui.copy-to-clipboard": {
+    "message": "Copy to Clipboard",
+    "description": "Copy to Clipboard"
+  },
+  "gui.damage": {
+    "message": "Estimated Damage",
+    "description": "Estimated Damage"
+  },
+  "gui.dmg-average": {
+    "message": "Average",
+    "description": "Average"
+  },
+  "gui.dmg-average.tip": {
+    "message": "Your expected average damage, ±5%%. This takes into account your critical hit and direct hit rates.",
+    "description": "Your expected average damage, ±5%%. This takes into account your critical hit and direct hit rates."
+  },
+  "gui.dmg-base": {
+    "message": "Base",
+    "description": "Base"
+  },
+  "gui.dmg-base.tip": {
+    "message": "Your expected normal hit damage, ±5%%. This is for attacks that are not critical hits or direct hits.",
+    "description": "Your expected normal hit damage, ±5%%. This is for attacks that are not critical hits or direct hits."
+  },
+  "gui.dmg-crit": {
+    "message": "Crit",
+    "description": "Crit"
+  },
+  "gui.dmg-crit.tip": {
+    "message": "Your expected critical hit damage, ±5%%. This is for attacks that are critical hits, but not direct hits.",
+    "description": "Your expected critical hit damage, ±5%%. This is for attacks that are critical hits, but not direct hits."
+  },
+  "gui.dmg-dh": {
+    "message": "DH",
+    "description": "DH"
+  },
+  "gui.dmg-dh.tip": {
+    "message": "Your expected direct hit damage, ±5%%. This is for attacks that are direct hits, but not critical hits.",
+    "description": "Your expected direct hit damage, ±5%%. This is for attacks that are direct hits, but not critical hits."
+  },
+  "gui.dmg-dhc": {
+    "message": "DCrit",
+    "description": "DCrit"
+  },
+  "gui.dmg-dhc.tip": {
+    "message": "Your expected critical direct hit damage, ±5%%. This is for attacks that are critical hits and direct hits.",
+    "description": "Your expected critical direct hit damage, ±5%%. This is for attacks that are critical hits and direct hits."
+  },
+  "gui.done": {
+    "message": "Done",
+    "description": "Done"
+  },
+  "gui.empty-slots": {
+    "message": "(Empty Slots)",
+    "description": "(Empty Slots)"
+  },
+  "gui.error": {
+    "message": "Error:",
+    "description": "Error:"
+  },
+  "gui.examine": {
+    "message": "Examine",
+    "description": "Examine"
+  },
+  "gui.export-success": {
+    "message": "Export Successful!",
+    "description": "Export Successful!"
+  },
+  "gui.export-to": {
+    "message": "Export To:",
+    "description": "Export To:"
+  },
+  "gui.export.teamcraft": {
+    "message": "Teamcraft (List)",
+    "description": "Teamcraft (List)"
+  },
+  "gui.exporting": {
+    "message": "Exporting...",
+    "description": "Exporting..."
+  },
+  "gui.filter": {
+    "message": "Filter",
+    "description": "Filter"
+  },
+  "gui.food": {
+    "message": "Food",
+    "description": "Food"
+  },
+  "gui.food-sync": {
+    "message": "Food / Sync Down",
+    "description": "Food / Sync Down"
+  },
+  "gui.food.none": {
+    "message": "(None)",
+    "description": "(None)"
+  },
+  "gui.gcd-row": {
+    "message": "   ... (GCD)",
+    "description": "   ... (GCD)"
+  },
+  "gui.group-bonus": {
+    "message": "Party Bonus %",
+    "description": "Party Bonus %"
+  },
+  "gui.ilvl-sync": {
+    "message": "Item Level Sync",
+    "description": "Item Level Sync"
+  },
+  "gui.item": {
+    "message": "Item",
+    "description": "Item"
+  },
+  "gui.item-ilvl": {
+    "message": "(i{0})",
+    "description": "(i{0})"
+  },
+  "gui.items": {
+    "message": "Items",
+    "description": "Items"
+  },
+  "gui.json": {
+    "message": "JSON",
+    "description": "JSON"
+  },
+  "gui.level-sync": {
+    "message": "Level Sync",
+    "description": "Level Sync"
+  },
+  "gui.link-item": {
+    "message": "Link Item in Chat",
+    "description": "Link Item in Chat"
+  },
+  "gui.medicine": {
+    "message": "Medicine",
+    "description": "Medicine"
+  },
+  "gui.melded": {
+    "message": "Melded Materia",
+    "description": "Melded Materia"
+  },
+  "gui.name": {
+    "message": "Name",
+    "description": "Name"
+  },
+  "gui.ok": {
+    "message": "OK",
+    "description": "OK"
+  },
+  "gui.open-browser": {
+    "message": "Open in Browser",
+    "description": "Open in Browser"
+  },
+  "gui.outdated-math": {
+    "message": "The formulas used to calculate these values have not been updated for Dawntrail yet, so they may not be accurate.",
+    "description": "The formulas used to calculate these values have not been updated for Dawntrail yet, so they may not be accurate."
+  },
+  "gui.plugin-name": {
+    "message": "Gearset Helper",
+    "description": "Gearset Helper"
+  },
+  "gui.potency": {
+    "message": "Potency",
+    "description": "Potency"
+  },
+  "gui.potency.tip": {
+    "message": "The potency of the simulated attack.",
+    "description": "The potency of the simulated attack."
+  },
+  "gui.remove-this": {
+    "message": "Remove",
+    "description": "Remove"
+  },
+  "gui.settings": {
+    "message": "Gearset Helper Settings",
+    "description": "Gearset Helper Settings"
+  },
+  "gui.settings.attach": {
+    "message": "Attach",
+    "description": "Attach"
+  },
+  "gui.settings.auto-food": {
+    "message": "Automatically Set Food",
+    "description": "Automatically Set Food"
+  },
+  "gui.settings.auto-party": {
+    "message": "Automatically Set Party Bonus%",
+    "description": "Automatically Set Party Bonus%"
+  },
+  "gui.settings.character": {
+    "message": "Character Window",
+    "description": "Character Window"
+  },
+  "gui.settings.enable": {
+    "message": "Enable",
+    "description": "Enable"
+  },
+  "gui.settings.error": {
+    "message": "Error",
+    "description": "Error"
+  },
+  "gui.settings.etro": {
+    "message": "Etro Support",
+    "description": "Etro Support"
+  },
+  "gui.settings.etro.about": {
+    "message": "In order to export gearsets to Etro, you need to authenticate yourself. If you use Discord to login, you'll need to enter an API key manually.",
+    "description": "In order to export gearsets to Etro, you need to authenticate yourself. If you use Discord to login, you'll need to enter an API key manually."
+  },
+  "gui.settings.etro.key": {
+    "message": "Key",
+    "description": "Key"
+  },
+  "gui.settings.examine": {
+    "message": "Examine Window",
+    "description": "Examine Window"
+  },
+  "gui.settings.food-hq": {
+    "message": "Only include HQ food.",
+    "description": "Only include HQ food."
+  },
+  "gui.settings.food-ilvl": {
+    "message": "Food Min Ilvl",
+    "description": "Food Min Ilvl"
+  },
+  "gui.settings.food-ilvl-dohl": {
+    "message": "Food Min Ilvl (DoH/L)",
+    "description": "Food Min Ilvl (DoH/L)"
+  },
+  "gui.settings.logging-in": {
+    "message": "Logging in...",
+    "description": "Logging in..."
+  },
+  "gui.settings.login": {
+    "message": "Login",
+    "description": "Login"
+  },
+  "gui.settings.logout": {
+    "message": "Log Out",
+    "description": "Log Out"
+  },
+  "gui.settings.password": {
+    "message": "Password",
+    "description": "Password"
+  },
+  "gui.settings.save": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "gui.settings.side": {
+    "message": "Side",
+    "description": "Side"
+  },
+  "gui.settings.sides": {
+    "message": "Left\u0000Right",
+    "description": "Left\u0000Right"
+  },
+  "gui.settings.unknown-error": {
+    "message": "An unknown error occurred.",
+    "description": "An unknown error occurred."
+  },
+  "gui.settings.username": {
+    "message": "Username",
+    "description": "Username"
+  },
+  "gui.url": {
+    "message": "URL",
+    "description": "URL"
+  },
+  "gui.value": {
+    "message": "Value",
+    "description": "Value"
+  }
+}

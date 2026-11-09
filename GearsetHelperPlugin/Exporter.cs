@@ -107,7 +107,7 @@ internal class Exporter : IDisposable {
 			Plugin.Logger.Info("Exporting gearset to XivGear.");
 
 			if (gearset.JobRow() is not ClassJob jobData) {
-				result.Error = "Unable to detect class.";
+				result.Error = Dalamud.Localization.Localize("export.error.no-class", "Unable to detect class.");
 				return result;
 			}
 
@@ -215,7 +215,7 @@ internal class Exporter : IDisposable {
 
 		} catch (Exception ex) {
 			Plugin.Logger.Error($"An error occurred while exporting gearset to XivGear.\nDetails: {ex}");
-			result.Error = "An error occurred. See the log for details.";
+			result.Error = Dalamud.Localization.Localize("export.error.see-log", "An error occurred. See the log for details.");
 		}
 
 		return result;
@@ -253,7 +253,7 @@ internal class Exporter : IDisposable {
 
 		} catch (Exception ex) {
 			Plugin.Logger.Error($"An error occurred while exporting gearset to Teamcraft.\nDetails: {ex}");
-			result.Error = "An error occurred. See the log for details.";
+			result.Error = Dalamud.Localization.Localize("export.error.see-log", "An error occurred. See the log for details.");
 		}
 
 		return result;
@@ -343,16 +343,16 @@ internal class Exporter : IDisposable {
 					if (!string.IsNullOrEmpty(parsedResponse.RefreshToken))
 						result.RefreshKey = parsedResponse.RefreshToken;
 				} else
-					result.Error = "Etro returned an invalid response.";
+					result.Error = Dalamud.Localization.Localize("export.error.etro-invalid", "Etro returned an invalid response.");
 
 			} else {
 				string? value = await response.Content.ReadAsStringAsync();
 				Plugin.Logger.Error($"Failure. Error: {response.StatusCode}\nDetails:{value}");
-				result.Error = "Etro returned invalid response.";
+				result.Error = Dalamud.Localization.Localize("export.error.etro-invalid-short", "Etro returned invalid response.");
 				var parsedError = JsonConvert.DeserializeObject<EtroError>(value);
 				if (parsedError != null) {
 					if (!string.IsNullOrEmpty(parsedError.Detail))
-						result.Error = $"Etro returned an error: {parsedError.Detail}";
+						result.Error = string.Format(Dalamud.Localization.Localize("export.error.etro-detail", "Etro returned an error: {0}"), parsedError.Detail);
 					else if (parsedError.OtherErrors != null) {
 						string? err = string.Join(", ", parsedError.OtherErrors.Where(x => !string.IsNullOrEmpty(x)));
 						if (!string.IsNullOrEmpty(err))
@@ -374,14 +374,14 @@ internal class Exporter : IDisposable {
 
 		try {
 			if (!CanExportEtro) {
-				result.Error = "Unable to export to Etro. Not authenticated.";
+				result.Error = Dalamud.Localization.Localize("export.error.etro-auth", "Unable to export to Etro. Not authenticated.");
 				return result;
 			}
 
 			Plugin.Logger.Info("Exporting gearset to Etro.");
 
 			if (gearset.JobRow() is not ClassJob jobData) {
-				result.Error = "Unable to detect class.";
+				result.Error = Dalamud.Localization.Localize("export.error.no-class", "Unable to detect class.");
 				return result;
 			}
 
@@ -505,7 +505,7 @@ internal class Exporter : IDisposable {
 					result.Url = $"https://etro.gg/gearset/{parsedResponse.Id}";
 
 				} else {
-					result.Error = "Etro returned invalid response.";
+					result.Error = Dalamud.Localization.Localize("export.error.etro-invalid-short", "Etro returned invalid response.");
 				}
 
 			} else {
@@ -513,15 +513,15 @@ internal class Exporter : IDisposable {
 				Plugin.Logger.Error($"Failure. Error: {response.StatusCode}\nDetails:{value}");
 				var parsedError = JsonConvert.DeserializeObject<EtroError>(value);
 				if (parsedError != null && !string.IsNullOrEmpty(parsedError.Detail)) {
-					result.Error = $"Etro returned an error: {parsedError.Detail}";
+					result.Error = string.Format(Dalamud.Localization.Localize("export.error.etro-detail", "Etro returned an error: {0}"), parsedError.Detail);
 				} else {
-					result.Error = "Etro returned invalid response.";
+					result.Error = Dalamud.Localization.Localize("export.error.etro-invalid-short", "Etro returned invalid response.");
 				}
 			}
 
 		} catch (Exception ex) {
 			Plugin.Logger.Error($"An error occurred while exporting gearset to Etro.\nDetails: {ex}");
-			result.Error = "An error occurred. See the log for details.";
+			result.Error = Dalamud.Localization.Localize("export.error.see-log", "An error occurred. See the log for details.");
 		}
 
 		return result;
@@ -643,7 +643,7 @@ internal class Exporter : IDisposable {
 			Plugin.Logger.Info("Exporting gearset to Ariyala.");
 
 			if (gearset.JobRow() is not ClassJob jobData) {
-				result.Error = "Unable to detect class.";
+				result.Error = Dalamud.Localization.Localize("export.error.no-class", "Unable to detect class.");
 				return result;
 			}
 
@@ -654,7 +654,7 @@ internal class Exporter : IDisposable {
 				job = abbrev;
 
 			if (job == null) {
-				result.Error = "Unable to map job to Ariyala.";
+				result.Error = Dalamud.Localization.Localize("export.error.ariyala-job", "Unable to map job to Ariyala.");
 				return result;
 			}
 
@@ -813,13 +813,13 @@ internal class Exporter : IDisposable {
 			} else {
 				string? value = await response.Content.ReadAsStringAsync();
 				Plugin.Logger.Error($"Failure. Error: {response.StatusCode}\nDetails:{value}");
-				result.Error = "Ariyala returned invalid response.";
+				result.Error = Dalamud.Localization.Localize("export.error.ariyala-invalid", "Ariyala returned invalid response.");
 			}
 
 		} catch (Exception ex) {
 			/* Do nothing~ */
 			Plugin.Logger.Error($"An error occurred while exporting gearset to Ariyala.\nDetails: {ex}");
-			result.Error = "An error occurred. See log for details.";
+			result.Error = Dalamud.Localization.Localize("export.error.see-log", "An error occurred. See the log for details.");
 		}
 
 		return result;

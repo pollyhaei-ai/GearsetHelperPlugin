@@ -3,7 +3,6 @@ using Dalamud;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 
 using FFXIVClientStructs.FFXIV.Client.Game;
-using FFXIVClientStructs.FFXIV.Component.GUI;
 
 namespace GearsetHelperPlugin.Ui;
 
@@ -27,14 +26,14 @@ internal class CharacterWindow : BaseWindow {
 			UpdateFoodData();
 	}
 
-	internal unsafe void Draw() {
+	internal void Draw() {
 		if (!Ui.Plugin.Config.DisplayWithCharacter) {
 			CachedSet = null;
 			return;
 		}
 
-		var charAddon = (AtkUnitBase*) Ui.Plugin.GameGui.GetAddonByName("Character", 1);
-		if (charAddon is null || !charAddon->IsVisible) {
+		var charAddon = Ui.Plugin.GameGui.GetAddonByName("Character", 1);
+		if (charAddon.IsNull || !charAddon.IsVisible) {
 			SelectedFood = null;
 			SelectedMedicine = null;
 			SelectedGroupBonus = 0;
@@ -42,16 +41,12 @@ internal class CharacterWindow : BaseWindow {
 			return;
 		}
 
-		var root = charAddon->RootNode;
-		if (root is null)
-			return;
-
 		DrawWindow(
 			Ui.Plugin.Config.AttachToCharacter,
 			Ui.Plugin.Config.AttachSideCharacter,
-			charAddon->X,
-			charAddon->Y,
-			(ushort) (root->Width * charAddon->Scale)
+			charAddon.X,
+			charAddon.Y,
+			(ushort) charAddon.ScaledWidth
 		);
 	}
 
@@ -65,7 +60,7 @@ internal class CharacterWindow : BaseWindow {
 
 	protected override unsafe IPlayerCharacter? GetActor() {
 		// The local player is easy to deal with.
-		return Ui.Plugin.ClientState.LocalPlayer;
+		return Ui.Plugin.ObjectTable.LocalPlayer;
 	}
 
 }

@@ -6,7 +6,7 @@ using Dalamud;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Windowing;
 
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 
 namespace GearsetHelperPlugin.Ui;
 
@@ -45,6 +45,8 @@ internal class SettingsWindow : Window, IDisposable {
 	}
 
 	public override void Draw() {
+		WindowName = Localization.Localize("gui.settings", "Gearset Helper Settings");
+
 		int ilvl = (int) Config.FoodMinIlvl;
 		if (ImGui.DragInt(Localization.Localize("gui.settings.food-ilvl", "Food Min Ilvl"), ref ilvl, 10, 0, 610)) {
 			Config.FoodMinIlvl = (uint) ilvl;
@@ -108,7 +110,7 @@ internal class SettingsWindow : Window, IDisposable {
 
 		ImGui.Spacing();
 
-		ImGui.TextColored(ImGuiColors.DalamudGrey, "Character Window");
+		ImGui.TextColored(ImGuiColors.DalamudGrey, Localization.Localize("gui.settings.character", "Character Window"));
 
 		ImGui.Indent();
 
@@ -198,7 +200,7 @@ internal class SettingsWindow : Window, IDisposable {
 
 				} else {
 					ImGui.TextColored(ImGuiColors.DalamudYellow, Localization.Localize("gui.settings.error", "Error"));
-					ImGui.TextWrapped(LoginTask.Result.Error ?? "An unknown error occurred.");
+					ImGui.TextWrapped(LoginTask.Result.Error ?? Localization.Localize("gui.settings.unknown-error", "An unknown error occurred."));
 					if (ImGui.Button(Localization.Localize("gui.ok", "OK")))
 						LoginTask = null;
 				}

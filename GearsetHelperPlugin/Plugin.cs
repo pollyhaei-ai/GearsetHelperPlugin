@@ -77,7 +77,8 @@ public sealed class Plugin : IDalamudPlugin {
 		);
 
 		Localization = new Localization(i18n_path);
-		Localization.SetupWithUiCulture();
+		ApplyLanguage(Interface.UiLanguage);
+		Interface.LanguageChanged += ApplyLanguage;
 
 		Config = Interface!.GetPluginConfig() as Configuration ?? new Configuration();
 		Config.Initialize(Interface);
@@ -96,9 +97,17 @@ public sealed class Plugin : IDalamudPlugin {
 #pragma warning restore 8618
 
 	public void Dispose() {
+		Interface.LanguageChanged -= ApplyLanguage;
 		Ui.Dispose();
 		Exporter.Dispose();
 		//Functions.Dispose();
+	}
+
+	private void ApplyLanguage(string langCode) {
+		if (string.IsNullOrEmpty(langCode))
+			Localization.SetupWithUiCulture();
+		else
+			Localization.SetupWithLangCode(langCode);
 	}
 
 }

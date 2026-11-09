@@ -1,0 +1,522 @@
+{
+  "attr.base": {
+    "message": "基礎能力值，尚未計入任何裝備。",
+    "description": "The base attribute points, before any gear is taken into account."
+  },
+  "attr.delta": {
+    "message": "鑲嵌魔晶石增加的能力值。",
+    "description": "The attribute points added by melded materia."
+  },
+  "attr.food": {
+    "message": "食物提供的能力值。",
+    "description": "The attribute points gained from food."
+  },
+  "attr.gcd": {
+    "message": "這一列是改變公共冷卻所需的能力值；上一列的階段則是持續傷害的階段。",
+    "description": "This line displays the number of attribute points needed to change your GCD, while the previous line's tiers are for DoT damage."
+  },
+  "attr.gear": {
+    "message": "裝備提供的能力值，不含魔晶石。",
+    "description": "The attribute points added by gear, not counting materia."
+  },
+  "attr.group-bonus": {
+    "message": "小隊加成提供的能力值。",
+    "description": "The attribute points gained from the Party Bonus."
+  },
+  "attr.next-tier": {
+    "message": "距離下一階段還需要的能力值。",
+    "description": "The number of attribute points to the next tier."
+  },
+  "attr.prev-tier": {
+    "message": "距離上一階段已累積的能力值。",
+    "description": "The number of attribute points since the previous tier."
+  },
+  "attr.remaining": {
+    "message": "距離裝備上限還剩下的能力值。",
+    "description": "The number of attribute points remaining until the item's limits are reached."
+  },
+  "attr.value": {
+    "message": "全部加總後的最終能力值。",
+    "description": "The final attribute points when you sum everything up."
+  },
+  "attr.waste": {
+    "message": "超過裝備上限而浪費的魔晶石能力值。",
+    "description": "The wasted attribute points from materia melded past an item's limits."
+  },
+  "calc.class": {
+    "message": "職業",
+    "description": "Class"
+  },
+  "calc.crit-rate": {
+    "message": "暴擊率",
+    "description": "Critical Hit Rate"
+  },
+  "calc.crit-strength": {
+    "message": "暴擊倍率",
+    "description": "Critical Hit Multiplier"
+  },
+  "calc.def-mitigation": {
+    "message": "傷害減輕",
+    "description": "Damage Mitigation"
+  },
+  "calc.det-multi": {
+    "message": "信念倍率",
+    "description": "Determination Multiplier"
+  },
+  "calc.dh-rate": {
+    "message": "直擊率",
+    "description": "Direct Hit Rate"
+  },
+  "calc.gcd": {
+    "message": "公共冷卻",
+    "description": "Global Cooldown"
+  },
+  "calc.gcd-gl": {
+    "message": "公共冷卻（疾風迅雷）",
+    "description": "Global Cooldown (GL)"
+  },
+  "calc.gcd-hu": {
+    "message": "公共冷卻（風遁之術）",
+    "description": "Global Cooldown (Huton)"
+  },
+  "calc.gcd-hyp": {
+    "message": "公共冷卻（繪靈幻景）",
+    "description": "Global Cooldown (Hyperphantasia)"
+  },
+  "calc.gcd-ll": {
+    "message": "公共冷卻（黑魔紋）",
+    "description": "Global Cooldown (Ley Lines)"
+  },
+  "calc.gcd-ssc": {
+    "message": "公共冷卻（疾速）",
+    "description": "Global Cooldown (Swiftscaled)"
+  },
+  "calc.hp": {
+    "message": "HP",
+    "description": "HP"
+  },
+  "calc.item-level": {
+    "message": "平均品級",
+    "description": "Average Item Level"
+  },
+  "calc.level": {
+    "message": "等級",
+    "description": "Level"
+  },
+  "calc.mdef-mitigation": {
+    "message": "魔法傷害減輕",
+    "description": "Magic Damage Mitigation"
+  },
+  "calc.name": {
+    "message": "玩家名稱",
+    "description": "Player Name"
+  },
+  "calc.pie-tick": {
+    "message": "每跳 MP",
+    "description": "MP per Tick"
+  },
+  "calc.sks-multi": {
+    "message": "技速倍率",
+    "description": "Skill Speed Multiplier"
+  },
+  "calc.specialist": {
+    "message": "專家",
+    "description": "Specialist"
+  },
+  "calc.sps-multi": {
+    "message": "詠速倍率",
+    "description": "Spell Speed Multiplier"
+  },
+  "calc.ten-mitigation": {
+    "message": "堅韌減傷",
+    "description": "Tenacity Mitigation"
+  },
+  "calc.ten-multi": {
+    "message": "堅韌倍率",
+    "description": "Tenacity Multiplier"
+  },
+  "calc.tribe": {
+    "message": "種族／部族",
+    "description": "Race / Clan"
+  },
+  "export.error.ariyala-invalid": {
+    "message": "Ariyala 傳回無效的回應。",
+    "description": "Ariyala returned invalid response."
+  },
+  "export.error.ariyala-job": {
+    "message": "無法對應到 Ariyala 的職業。",
+    "description": "Unable to map job to Ariyala."
+  },
+  "export.error.etro-auth": {
+    "message": "無法匯出到 Etro。尚未登入。",
+    "description": "Unable to export to Etro. Not authenticated."
+  },
+  "export.error.etro-detail": {
+    "message": "Etro 傳回錯誤：{0}",
+    "description": "Etro returned an error: {0}"
+  },
+  "export.error.etro-invalid": {
+    "message": "Etro 傳回了無效的回應。",
+    "description": "Etro returned an invalid response."
+  },
+  "export.error.etro-invalid-short": {
+    "message": "Etro 傳回無效的回應。",
+    "description": "Etro returned invalid response."
+  },
+  "export.error.no-class": {
+    "message": "無法判斷職業。",
+    "description": "Unable to detect class."
+  },
+  "export.error.see-log": {
+    "message": "發生錯誤。詳情請查看紀錄。",
+    "description": "An error occurred. See the log for details."
+  },
+  "export.visit-xivgear": {
+    "message": "開啟下方網址，並貼上 JSON，即可把裝備匯入 XivGear。",
+    "description": "Visit the provided URL and paste the JSON below to import your gearset into XivGear."
+  },
+  "export.xivgear.no-dohl": {
+    "message": "XivGear 不支援非戰鬥職業。",
+    "description": "XivGear does not support non-combat jobs."
+  },
+  "gui.about-level-sync": {
+    "message": "以指定的同步等級或品級模擬能力值。降等同步時，已鑲嵌的魔晶石不會生效。",
+    "description": "Simulate stats at a specific synced level or item level. Melded materia do not apply when synced down."
+  },
+  "gui.at-synced-ilvl": {
+    "message": "（同步品級 {0}）",
+    "description": "(At i{0})"
+  },
+  "gui.attributes": {
+    "message": "屬性",
+    "description": "Attributes"
+  },
+  "gui.calculated": {
+    "message": "計算結果",
+    "description": "Calculated"
+  },
+  "gui.character": {
+    "message": "角色",
+    "description": "Character"
+  },
+  "gui.col.base": {
+    "message": "基礎",
+    "description": "Base"
+  },
+  "gui.col.cap": {
+    "message": "上限",
+    "description": "Cap"
+  },
+  "gui.col.food": {
+    "message": "食物",
+    "description": "Food"
+  },
+  "gui.col.gear": {
+    "message": "裝備",
+    "description": "Gear"
+  },
+  "gui.col.meld": {
+    "message": "鑲嵌",
+    "description": "Meld"
+  },
+  "gui.col.name": {
+    "message": "名稱",
+    "description": "Name"
+  },
+  "gui.col.next": {
+    "message": "後階",
+    "description": "Next"
+  },
+  "gui.col.over": {
+    "message": "溢出",
+    "description": "Over"
+  },
+  "gui.col.party": {
+    "message": "小隊",
+    "description": "Party"
+  },
+  "gui.col.prev": {
+    "message": "前階",
+    "description": "Prev"
+  },
+  "gui.col.total": {
+    "message": "合計",
+    "description": "Total"
+  },
+  "gui.copied-to-clipboard": {
+    "message": "已複製到剪貼簿",
+    "description": "Copied to Clipboard"
+  },
+  "gui.copy-to-clipboard": {
+    "message": "複製到剪貼簿",
+    "description": "Copy to Clipboard"
+  },
+  "gui.damage": {
+    "message": "預估傷害",
+    "description": "Estimated Damage"
+  },
+  "gui.dmg-average": {
+    "message": "平均",
+    "description": "Average"
+  },
+  "gui.dmg-average.tip": {
+    "message": "預期平均傷害，±5%%。已計入暴擊與直擊機率。",
+    "description": "Your expected average damage, ±5%%. This takes into account your critical hit and direct hit rates."
+  },
+  "gui.dmg-base": {
+    "message": "基礎",
+    "description": "Base"
+  },
+  "gui.dmg-base.tip": {
+    "message": "預期普通命中傷害，±5%%。用於非暴擊、非直擊的攻擊。",
+    "description": "Your expected normal hit damage, ±5%%. This is for attacks that are not critical hits or direct hits."
+  },
+  "gui.dmg-crit": {
+    "message": "暴擊",
+    "description": "Crit"
+  },
+  "gui.dmg-crit.tip": {
+    "message": "預期暴擊傷害，±5%%。用於暴擊但非直擊的攻擊。",
+    "description": "Your expected critical hit damage, ±5%%. This is for attacks that are critical hits, but not direct hits."
+  },
+  "gui.dmg-dh": {
+    "message": "直擊",
+    "description": "DH"
+  },
+  "gui.dmg-dh.tip": {
+    "message": "預期直擊傷害，±5%%。用於直擊但非暴擊的攻擊。",
+    "description": "Your expected direct hit damage, ±5%%. This is for attacks that are direct hits, but not critical hits."
+  },
+  "gui.dmg-dhc": {
+    "message": "直暴",
+    "description": "DCrit"
+  },
+  "gui.dmg-dhc.tip": {
+    "message": "預期暴擊直擊傷害，±5%%。用於同時暴擊且直擊的攻擊。",
+    "description": "Your expected critical direct hit damage, ±5%%. This is for attacks that are critical hits and direct hits."
+  },
+  "gui.done": {
+    "message": "完成",
+    "description": "Done"
+  },
+  "gui.empty-slots": {
+    "message": "（空欄）",
+    "description": "(Empty Slots)"
+  },
+  "gui.error": {
+    "message": "錯誤：",
+    "description": "Error:"
+  },
+  "gui.examine": {
+    "message": "查看",
+    "description": "Examine"
+  },
+  "gui.export-success": {
+    "message": "匯出成功！",
+    "description": "Export Successful!"
+  },
+  "gui.export-to": {
+    "message": "匯出至：",
+    "description": "Export To:"
+  },
+  "gui.export.teamcraft": {
+    "message": "Teamcraft（清單）",
+    "description": "Teamcraft (List)"
+  },
+  "gui.exporting": {
+    "message": "匯出中……",
+    "description": "Exporting..."
+  },
+  "gui.filter": {
+    "message": "篩選",
+    "description": "Filter"
+  },
+  "gui.food": {
+    "message": "食物",
+    "description": "Food"
+  },
+  "gui.food-sync": {
+    "message": "食物／降等同步",
+    "description": "Food / Sync Down"
+  },
+  "gui.food.none": {
+    "message": "（無）",
+    "description": "(None)"
+  },
+  "gui.gcd-row": {
+    "message": "   ……（公共冷卻）",
+    "description": "   ... (GCD)"
+  },
+  "gui.group-bonus": {
+    "message": "小隊加成 %",
+    "description": "Party Bonus %"
+  },
+  "gui.ilvl-sync": {
+    "message": "品級同步",
+    "description": "Item Level Sync"
+  },
+  "gui.item": {
+    "message": "物品",
+    "description": "Item"
+  },
+  "gui.item-ilvl": {
+    "message": "（品級 {0}）",
+    "description": "(i{0})"
+  },
+  "gui.items": {
+    "message": "裝備",
+    "description": "Items"
+  },
+  "gui.json": {
+    "message": "JSON",
+    "description": "JSON"
+  },
+  "gui.level-sync": {
+    "message": "等級同步",
+    "description": "Level Sync"
+  },
+  "gui.link-item": {
+    "message": "在聊天中連結物品",
+    "description": "Link Item in Chat"
+  },
+  "gui.medicine": {
+    "message": "藥品",
+    "description": "Medicine"
+  },
+  "gui.melded": {
+    "message": "已鑲嵌魔晶石",
+    "description": "Melded Materia"
+  },
+  "gui.name": {
+    "message": "名稱",
+    "description": "Name"
+  },
+  "gui.ok": {
+    "message": "確定",
+    "description": "OK"
+  },
+  "gui.open-browser": {
+    "message": "用瀏覽器開啟",
+    "description": "Open in Browser"
+  },
+  "gui.outdated-math": {
+    "message": "這些數值使用的公式尚未針對「黃金的遺產」更新，結果可能不準確。",
+    "description": "The formulas used to calculate these values have not been updated for Dawntrail yet, so they may not be accurate."
+  },
+  "gui.plugin-name": {
+    "message": "裝備助手",
+    "description": "Gearset Helper"
+  },
+  "gui.potency": {
+    "message": "威力",
+    "description": "Potency"
+  },
+  "gui.potency.tip": {
+    "message": "模擬攻擊的威力。",
+    "description": "The potency of the simulated attack."
+  },
+  "gui.remove-this": {
+    "message": "移除",
+    "description": "Remove"
+  },
+  "gui.settings": {
+    "message": "裝備助手設定",
+    "description": "Gearset Helper Settings"
+  },
+  "gui.settings.attach": {
+    "message": "依附",
+    "description": "Attach"
+  },
+  "gui.settings.auto-food": {
+    "message": "自動設定食物",
+    "description": "Automatically Set Food"
+  },
+  "gui.settings.auto-party": {
+    "message": "自動設定小隊加成 %",
+    "description": "Automatically Set Party Bonus%"
+  },
+  "gui.settings.character": {
+    "message": "角色視窗",
+    "description": "Character Window"
+  },
+  "gui.settings.enable": {
+    "message": "啟用",
+    "description": "Enable"
+  },
+  "gui.settings.error": {
+    "message": "錯誤",
+    "description": "Error"
+  },
+  "gui.settings.etro": {
+    "message": "Etro 支援",
+    "description": "Etro Support"
+  },
+  "gui.settings.etro.about": {
+    "message": "要將裝備匯出到 Etro，需要先登入。若使用 Discord 登入，請手動輸入 API 金鑰。",
+    "description": "In order to export gearsets to Etro, you need to authenticate yourself. If you use Discord to login, you'll need to enter an API key manually."
+  },
+  "gui.settings.etro.key": {
+    "message": "金鑰",
+    "description": "Key"
+  },
+  "gui.settings.examine": {
+    "message": "查看視窗",
+    "description": "Examine Window"
+  },
+  "gui.settings.food-hq": {
+    "message": "只列出高品質食物。",
+    "description": "Only include HQ food."
+  },
+  "gui.settings.food-ilvl": {
+    "message": "食物最低品級",
+    "description": "Food Min Ilvl"
+  },
+  "gui.settings.food-ilvl-dohl": {
+    "message": "食物最低品級（生產／採集）",
+    "description": "Food Min Ilvl (DoH/L)"
+  },
+  "gui.settings.logging-in": {
+    "message": "登入中……",
+    "description": "Logging in..."
+  },
+  "gui.settings.login": {
+    "message": "登入",
+    "description": "Login"
+  },
+  "gui.settings.logout": {
+    "message": "登出",
+    "description": "Log Out"
+  },
+  "gui.settings.password": {
+    "message": "密碼",
+    "description": "Password"
+  },
+  "gui.settings.save": {
+    "message": "儲存",
+    "description": "Save"
+  },
+  "gui.settings.side": {
+    "message": "側邊",
+    "description": "Side"
+  },
+  "gui.settings.sides": {
+    "message": "左側\u0000右側",
+    "description": "Left\u0000Right"
+  },
+  "gui.settings.unknown-error": {
+    "message": "發生未知錯誤。",
+    "description": "An unknown error occurred."
+  },
+  "gui.settings.username": {
+    "message": "使用者名稱",
+    "description": "Username"
+  },
+  "gui.url": {
+    "message": "網址",
+    "description": "URL"
+  },
+  "gui.value": {
+    "message": "數值",
+    "description": "Value"
+  }
+}

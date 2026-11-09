@@ -18,7 +18,7 @@ using FFXIVClientStructs.FFXIV.Client.Game;
 
 using GearsetHelperPlugin.Models;
 
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 
 using Lumina.Excel.Sheets;
 
@@ -414,7 +414,7 @@ internal abstract class BaseWindow : IDisposable {
 
 		if (ImGui.BeginCombo(label, curLabel, ImGuiComboFlags.None | ImGuiComboFlags.HeightLargest)) {
 			ImGui.SetNextItemWidth(-1);
-			ImGui.InputTextWithHint($"##{label}#FoodFilter", "Filter", ref filter, 60);
+			ImGui.InputTextWithHint($"##{label}#FoodFilter", Localization.Localize("gui.filter", "Filter"), ref filter, 60);
 			if (!focused)
 				ImGui.SetKeyboardFocusHere();
 
@@ -512,7 +512,7 @@ internal abstract class BaseWindow : IDisposable {
 
 					ImGui.SetCursorPosX(oldPos.X);
 					ImGui.SetCursorPosY(oldPos.Y + (size.Y - height) / 2);
-					ImGui.Image(image.ImGuiHandle, new Vector2(width, height));
+					ImGui.Image(image.Handle, new Vector2(width, height));
 				}
 
 				ImGui.SetCursorPosX(oldPos.X + width + 2 * padX);
@@ -576,11 +576,13 @@ internal abstract class BaseWindow : IDisposable {
 		// Determine the current UI scale based on the font size.
 		float scale = ImGui.GetFontSize() / 17;
 
+		string pluginLabel = Localization.Localize("gui.plugin-name", "Gearset Helper");
+
 		float menuWidth;
 		if (visible)
 			menuWidth = 430 * scale;
 		else
-			menuWidth = (ImGui.CalcTextSize(Ui.Plugin.Name).X + ImGui.GetFrameHeight());
+			menuWidth = (ImGui.CalcTextSize(pluginLabel).X + ImGui.GetFrameHeight());
 
 		// Position
 		bool left = side == 0;
@@ -601,12 +603,12 @@ internal abstract class BaseWindow : IDisposable {
 		}
 
 		if (!visible) {
-			var size = ImGui.CalcTextSize(Ui.Plugin.Name);
+			var size = ImGui.CalcTextSize(pluginLabel);
 			pos = GetButtonPosition(size.X, size.Y) ?? pos;
 			ImGui.SetNextWindowPos(pos);
-			if (ImGui.Begin($"##{Ui.Plugin.Name}#{Name}", ButtonWindowFlags)) {
+			if (ImGui.Begin($"##GearsetHelperButton#{GetType().Name}", ButtonWindowFlags)) {
 
-				if (ImGui.Button(Ui.Plugin.Name))
+				if (ImGui.Button(pluginLabel))
 					Visible = true;
 
 			}
@@ -624,7 +626,7 @@ internal abstract class BaseWindow : IDisposable {
 		ImGui.SetNextWindowSize(new Vector2(menuWidth, 200 * scale), ImGuiCond.FirstUseEver);
 		ImGui.SetNextWindowSizeConstraints(new Vector2(menuWidth, 200 * scale), new Vector2(left ? menuWidth : float.MaxValue, float.MaxValue));
 
-		if (ImGui.Begin($"{Ui.Plugin.Name} - {Name}", ref visible, flags | ImGuiWindowFlags.NoDocking | ImGuiWindowFlags.NoFocusOnAppearing | ImGuiWindowFlags.NoCollapse)) {
+		if (ImGui.Begin($"{pluginLabel} - {Name}###GearsetHelper-{GetType().Name}", ref visible, flags | ImGuiWindowFlags.NoDocking | ImGuiWindowFlags.NoFocusOnAppearing | ImGuiWindowFlags.NoCollapse)) {
 			if (ExportTask != null)
 				ImGui.Text(Localization.Localize("gui.exporting", "Exporting..."));
 
@@ -640,7 +642,7 @@ internal abstract class BaseWindow : IDisposable {
 
 					string url = ExportResponse.Url ?? string.Empty;
 					if (!string.IsNullOrWhiteSpace(url)) {
-						ImGui.InputText(Localization.Localize("gui.url", "URL"), ref url, (uint) url.Length, ImGuiInputTextFlags.AutoSelectAll | ImGuiInputTextFlags.ReadOnly);
+						ImGui.InputText(Localization.Localize("gui.url", "URL"), ref url, url.Length, ImGuiInputTextFlags.AutoSelectAll | ImGuiInputTextFlags.ReadOnly);
 
 						ImGui.SameLine();
 						ImGui.PushID($"copy-to-clipboard#url");
@@ -665,7 +667,7 @@ internal abstract class BaseWindow : IDisposable {
 
 					string json = ExportResponse.Clipboard ?? string.Empty;
 					if (!string.IsNullOrWhiteSpace(json)) {
-						ImGui.InputTextMultiline(Localization.Localize("gui.json", "JSON"), ref json, (uint) url.Length, Vector2.Zero, ImGuiInputTextFlags.AutoSelectAll | ImGuiInputTextFlags.ReadOnly);
+						ImGui.InputTextMultiline(Localization.Localize("gui.json", "JSON"), ref json, Math.Max(json.Length, 1), Vector2.Zero, ImGuiInputTextFlags.AutoSelectAll | ImGuiInputTextFlags.ReadOnly);
 
 						ImGui.SameLine();
 						ImGui.PushID($"copy-to-clipboard#json");
@@ -705,7 +707,7 @@ internal abstract class BaseWindow : IDisposable {
 				}
 
 				ImGui.SameLine();
-				if (ImGui.Button("Teamcraft (List)"))
+				if (ImGui.Button(Localization.Localize("gui.export.teamcraft", "Teamcraft (List)")))
 					ExportTask = Ui.Plugin.Exporter.ExportTeamcraft(CachedSet);
 
 				ImGui.SameLine();
@@ -861,8 +863,7 @@ internal abstract class BaseWindow : IDisposable {
 						entries = list;
 					}
 
-					if (sort.Specs.SortDirection != ImGuiSortDirection.None) {
-						bool descending = sort.Specs.SortDirection == ImGuiSortDirection.Descending;
+					if (sort.SpecsCount > 0 && !sort.Specs.IsNull && sort.Specs.SortDirection != ImGuiSortDirection.None) {
 						switch (sort.Specs.ColumnIndex) {
 							case 0:
 								entries = entries.OrderBy(val => val.Value);
@@ -895,7 +896,7 @@ internal abstract class BaseWindow : IDisposable {
 						ImGui.TableSetColumnIndex(1);
 
 						if (icon != null) {
-							ImGui.Image(icon.ImGuiHandle, new Vector2(height, height));
+							ImGui.Image(icon.Handle, new Vector2(height, height));
 							ImGui.SameLine();
 							ImGui.SetCursorPosY(ImGui.GetCursorPosY() + (height - ImGui.GetFontSize()) / 2);
 						}
@@ -938,7 +939,7 @@ internal abstract class BaseWindow : IDisposable {
 					var icon = GetIcon(item, rawItem.HighQuality)?.GetWrapOrEmpty();
 					int height = icon is null ? 0 : Math.Min(icon.Height, (int) (32 * scale));
 					if (icon != null) {
-						ImGui.Image(icon.ImGuiHandle, new Vector2(height, height));
+						ImGui.Image(icon.Handle, new Vector2(height, height));
 						ImGui.SameLine();
 						ImGui.SetCursorPosY(ImGui.GetCursorPosY() + (height - ImGui.GetFontSize()) / 2);
 					}
@@ -948,11 +949,11 @@ internal abstract class BaseWindow : IDisposable {
 					if (CachedSet.ILvlSync > 0 && item.LevelItem.RowId > CachedSet.ILvlSync) {
 						ImGui.SameLine();
 						ImGui.SetCursorPosY(ImGui.GetCursorPosY() + (height - ImGui.GetFontSize()) / 2);
-						ImGui.TextColored(ImGuiColors.ParsedGrey, $"(At i{CachedSet.ILvlSync})");
+						ImGui.TextColored(ImGuiColors.ParsedGrey, string.Format(Localization.Localize("gui.at-synced-ilvl", "(At i{0})"), CachedSet.ILvlSync));
 					} else if (item.LevelItem.IsValid) {
 						ImGui.SameLine();
 						ImGui.SetCursorPosY(ImGui.GetCursorPosY() + (height - ImGui.GetFontSize()) / 2);
-						ImGui.TextColored(ImGuiColors.ParsedGrey, $"(i{item.LevelItem.RowId})");
+						ImGui.TextColored(ImGuiColors.ParsedGrey, string.Format(Localization.Localize("gui.item-ilvl", "(i{0})"), item.LevelItem.RowId));
 					}
 
 					ImGui.SameLine(ImGui.GetWindowContentRegionMax().X - 32);
@@ -1101,41 +1102,41 @@ internal abstract class BaseWindow : IDisposable {
 			cols += 3;
 
 		ImGui.BeginTable("StatTable", cols, ImGuiTableFlags.RowBg);
-		ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthStretch, 3f);
+		ImGui.TableSetupColumn(Localization.Localize("gui.col.name", "Name"), ImGuiTableColumnFlags.WidthStretch, 3f);
 
 		if (includeBase) {
-			ImGui.TableSetupColumn("Base", ImGuiTableColumnFlags.None, 1f);
+			ImGui.TableSetupColumn(Localization.Localize("gui.col.base", "Base"), ImGuiTableColumnFlags.None, 1f);
 			ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
 		}
 
-		ImGui.TableSetupColumn("Gear", ImGuiTableColumnFlags.None, 1f);
+		ImGui.TableSetupColumn(Localization.Localize("gui.col.gear", "Gear"), ImGuiTableColumnFlags.None, 1f);
 		ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-		ImGui.TableSetupColumn("Meld", ImGuiTableColumnFlags.None, 1f);
+		ImGui.TableSetupColumn(Localization.Localize("gui.col.meld", "Meld"), ImGuiTableColumnFlags.None, 1f);
 		ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-		ImGui.TableSetupColumn("Over", ImGuiTableColumnFlags.None, 1f);
+		ImGui.TableSetupColumn(Localization.Localize("gui.col.over", "Over"), ImGuiTableColumnFlags.None, 1f);
 
 		if (includeFood) {
 			ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-			ImGui.TableSetupColumn("Food", ImGuiTableColumnFlags.None, 1f);
+			ImGui.TableSetupColumn(Localization.Localize("gui.col.food", "Food"), ImGuiTableColumnFlags.None, 1f);
 		}
 
 		if (includeBonus) {
 			ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-			ImGui.TableSetupColumn("Party", ImGuiTableColumnFlags.None, 1f);
+			ImGui.TableSetupColumn(Localization.Localize("gui.col.party", "Party"), ImGuiTableColumnFlags.None, 1f);
 		}
 
 		ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-		ImGui.TableSetupColumn("Total", ImGuiTableColumnFlags.None, 1f);
+		ImGui.TableSetupColumn(Localization.Localize("gui.col.total", "Total"), ImGuiTableColumnFlags.None, 1f);
 
 		if (includeTiers) {
 			ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-			ImGui.TableSetupColumn("Prev", ImGuiTableColumnFlags.None, 1f);
-			ImGui.TableSetupColumn("Next", ImGuiTableColumnFlags.None, 1f);
+			ImGui.TableSetupColumn(Localization.Localize("gui.col.prev", "Prev"), ImGuiTableColumnFlags.None, 1f);
+			ImGui.TableSetupColumn(Localization.Localize("gui.col.next", "Next"), ImGuiTableColumnFlags.None, 1f);
 		}
 
 		if (includeRemaining) {
 			ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthFixed, 10f);
-			ImGui.TableSetupColumn("Cap", ImGuiTableColumnFlags.None, 1f);
+			ImGui.TableSetupColumn(Localization.Localize("gui.col.cap", "Cap"), ImGuiTableColumnFlags.None, 1f);
 		}
 
 		ImGui.TableHeadersRow();
@@ -1284,7 +1285,7 @@ internal abstract class BaseWindow : IDisposable {
 			if (includeTiers && gcd != null && (param.RowId == (int) Stat.SKS || param.RowId == (int) Stat.SPS)) {
 				ImGui.TableNextRow();
 				ImGui.TableNextColumn();
-				ImGui.Text($"   ... (GCD)");
+				ImGui.Text(Localization.Localize("gui.gcd-row", "   ... (GCD)"));
 
 				if (ImGui.IsItemHovered())
 					ImGui.SetTooltip(Localization.Localize("attr.gcd", "This line displays the number of attribute points needed to change your GCD, while the previous line's tiers are for DoT damage."));

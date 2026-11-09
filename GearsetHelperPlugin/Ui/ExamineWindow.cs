@@ -40,7 +40,7 @@ internal class ExamineWindow : BaseWindow {
 			UpdateFoodData();
 	}
 
-	internal unsafe void Draw() {
+	internal void Draw() {
 		if (!Ui.Plugin.Config.DisplayWithExamine) {
 			CachedSet = null;
 			SelectedFood = null;
@@ -48,24 +48,20 @@ internal class ExamineWindow : BaseWindow {
 			return;
 		}
 
-		var examineAddon = (AtkUnitBase*) Ui.Plugin.GameGui.GetAddonByName("CharacterInspect", 1);
-		if (examineAddon == null || !examineAddon->IsVisible) {
+		var examineAddon = Ui.Plugin.GameGui.GetAddonByName("CharacterInspect", 1);
+		if (examineAddon.IsNull || !examineAddon.IsVisible) {
 			CachedSet = null;
 			SelectedFood = null;
 			SelectedMedicine = null;
 			return;
 		}
 
-		var root = examineAddon->RootNode;
-		if (root is null)
-			return;
-
 		DrawWindow(
 			Ui.Plugin.Config.AttachToExamine,
 			Ui.Plugin.Config.AttachSideExamine,
-			examineAddon->X,
-			examineAddon->Y,
-			(ushort) (root->Width * examineAddon->Scale)
+			examineAddon.X,
+			examineAddon.Y,
+			(ushort) examineAddon.ScaledWidth
 		);
 	}
 
@@ -81,9 +77,11 @@ internal class ExamineWindow : BaseWindow {
 	protected override unsafe IPlayerCharacter? GetActor() {
 		// TODO: Rewrite this entire method, and probably factor it out.
 
-		var examineAddon = (AtkUnitBase*) Ui.Plugin.GameGui.GetAddonByName("CharacterInspect", 1);
-		if (examineAddon == null || !examineAddon->IsVisible)
+		var examineAddonPtr = Ui.Plugin.GameGui.GetAddonByName("CharacterInspect", 1);
+		if (examineAddonPtr.IsNull || !examineAddonPtr.IsVisible)
 			return null;
+
+		var examineAddon = (AtkUnitBase*) examineAddonPtr.Address;
 
 		Lazy<Dictionary<string, IPlayerCharacter>> players = new(() => {
 			var rawPlayers = Ui.Plugin.ObjectTable

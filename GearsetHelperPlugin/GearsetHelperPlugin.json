@@ -2,10 +2,11 @@
 	"Author": "Khloe Leclair",
 	"Name": "Gearset Helper Plugin",
 	"Punchline": "Display estimated stats with Examine, and export gear to Etro/Ariyala.",
-	"Description": "Displays extra information about a character's gearsets when Examine is open, and makes it easy to export gearsets to Etro or Ariyala.",
+	"Description": "Displays extra information about a character's gearsets when Examine is open, and makes it easy to export gearsets to Etro or Ariyala. Taiwan client port for yanmucorp Dalamud API 13 / XIVTCLauncher. Not for official international API 14 or 15.",
 	"RepoUrl": "https://github.com/KhloeLeclair/GearsetHelperPlugin",
 	"InternalName": "GearsetHelperPlugin",
 	"ApplicableVersion": "any",
+	"DalamudApiLevel": 13,
 	"Tags": [
 		"UI",
 		"gearset",
