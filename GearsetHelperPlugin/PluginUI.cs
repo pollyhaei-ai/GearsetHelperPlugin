@@ -28,6 +28,7 @@ internal class PluginUI : IDisposable {
 
 		Plugin.Interface.UiBuilder.Draw += Draw;
 		Plugin.Interface.UiBuilder.OpenConfigUi += OpenConfig;
+		Plugin.Interface.UiBuilder.OpenMainUi += OpenConfig;
 	}
 
     public void Dispose() {
@@ -37,6 +38,7 @@ internal class PluginUI : IDisposable {
 
 		Plugin.Interface.UiBuilder.Draw -= Draw;
 		Plugin.Interface.UiBuilder.OpenConfigUi -= OpenConfig;
+		Plugin.Interface.UiBuilder.OpenMainUi -= OpenConfig;
 	}
 
 	public void OpenConfig() {
