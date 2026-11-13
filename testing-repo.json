@@ -21,7 +21,7 @@
 		"LoadPriority": 0,
 		"DownloadLinkInstall": "https://github.com/pollyhaei-ai/GearsetHelperPlugin/releases/download/api13-tw-2.6.0.1/GearsetHelperPlugin-api13-tw-2.6.0.1.zip",
 		"DownloadLinkUpdate": "https://github.com/pollyhaei-ai/GearsetHelperPlugin/releases/download/api13-tw-2.6.0.1/GearsetHelperPlugin-api13-tw-2.6.0.1.zip",
-		"IconUrl": "https://raw.githubusercontent.com/KhloeLeclair/GearsetHelperPlugin/main/images/icon.png",
+		"IconUrl": "https://raw.githubusercontent.com/pollyhaei-ai/GearsetHelperPlugin/main/images/icon.png",
 		"ImageUrls": [
 			"https://raw.githubusercontent.com/KhloeLeclair/GearsetHelperPlugin/main/images/image1-cropped.png",
 			"https://raw.githubusercontent.com/KhloeLeclair/GearsetHelperPlugin/main/images/image2-cropped.png",
